@@ -20,7 +20,6 @@ if bool(os.environ.get("WEBHOOK", False)):
 else:
     from config import Config
 
-    from translation import Translation
     
 from script import script
 from database.database import *
@@ -64,9 +63,7 @@ async def echo(bot, update):
                     [ InlineKeyboardButton(text="Join My Updates Channel", url=f"https://t.me/{update_channel}")]
               ])
             )
-            return
-         Exception:
-            await update.reply_text("Something Wrong. Contact @shreevish")
+            
         return
 
     logger.info(update.from_user.id)
