@@ -66,17 +66,7 @@ async def echo(bot, update):
             )
 return
         except Exception:
-            await update.reply_text("Something Wrong. Contact my Support Group")
-      
-"""@Client.on_message(filters.private & filters.regex(pattern=".*http.*"))
-async def zee5_capture(bot, update):
-
-    if update.from_user.id in Config.BANNED_USERS:
-        await bot.delete_messages(
-            chat_id=update.chat.id,
-            message_ids=update.message_id,
-            revoke=True
-        )"""
+            await update.reply_text("Something Wrong. Contact @shreevish")
         return
 
     logger.info(update.from_user.id)
