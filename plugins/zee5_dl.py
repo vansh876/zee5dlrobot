@@ -64,8 +64,8 @@ async def echo(bot, update):
                     [ InlineKeyboardButton(text="Join My Updates Channel", url=f"https://t.me/{update_channel}")]
               ])
             )
-return
-        except Exception:
+            return
+         Exception:
             await update.reply_text("Something Wrong. Contact @shreevish")
         return
 
