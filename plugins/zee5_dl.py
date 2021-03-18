@@ -20,12 +20,16 @@ if bool(os.environ.get("WEBHOOK", False)):
 else:
     from config import Config
 
+    from translation import Translation
+    
 from script import script
 from database.database import *
 
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from pyrogram.errors import UserNotParticipant, UserBannedInChannel 
 
+from helper_funcs.chat_base import TRChatBase
 from hachoir.metadata import extractMetadata
 from hachoir.parser import createParser
 from datetime import datetime
@@ -39,9 +43,32 @@ from plugins.helpers import(
     DownLoadFile
 )
 
-
-
-@Client.on_message(filters.private & filters.regex(pattern=".*http.*"))
+@Client.on_message(pyrogram.filters.regex(pattern=".*http.*"))
+async def echo(bot, update):
+    if update.from_user.id in Config.BANNED_USERS:
+        await update.reply_text("You are B A N N E D 🤣🤣🤣🤣")
+        return
+    TRChatBase(update.from_user.id, update.text, "/echo")
+    update_channel = Config.UPDATE_CHANNEL
+    if update_channel:
+        try:
+            user = await bot.get_chat_member(update_channel, update.chat.id)
+            if user.status == "kicked":
+               await update.reply_text("🤭 Sorry Dude, You are **B A N N E D 🤣🤣🤣**")
+               return
+        except UserNotParticipant:
+            #await update.reply_text(f"Join @{update_channel} To Use Me")
+            await update.reply_text(
+                text="**Join My Updates Channel to use ME 😎 🤭**",
+                reply_markup=InlineKeyboardMarkup([
+                    [ InlineKeyboardButton(text="Join My Updates Channel", url=f"https://t.me/{update_channel}")]
+              ])
+            )
+return
+        except Exception:
+            await update.reply_text("Something Wrong. Contact my Support Group")
+      
+"""@Client.on_message(filters.private & filters.regex(pattern=".*http.*"))
 async def zee5_capture(bot, update):
 
     if update.from_user.id in Config.BANNED_USERS:
@@ -49,7 +76,7 @@ async def zee5_capture(bot, update):
             chat_id=update.chat.id,
             message_ids=update.message_id,
             revoke=True
-        )
+        )"""
         return
 
     logger.info(update.from_user.id)
@@ -424,7 +451,7 @@ async def zee5_execute(bot, update):
 
                 await bot.edit_message_text(
                     text=script.AFTER_SUCCESSFUL_UPLOAD_MSG_WITH_TS,
-                    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="🙌🏻 SHARE ME 🙌🏻", url="tg://msg?text=%2A%2AHai%20%E2%9D%A4%EF%B8%8F%2C%2A%2A%20%0A__Today%20i%20just%20found%20out%20an%20intresting%20and%20Powerful__%20%2A%2AZee5%20Downloader%20Bot%2A%2A%20__for%20Free%F0%9F%A5%B0.__%20%20%0A%2A%2ABot%20Link%20%3A%20%40Zee5HEXBot%2A%2A%20%F0%9F%94%A5")]]),
+                    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="🙌🏻 Creator 🙌🏻", url="https//:t.me/shreevish")]]),
                     chat_id=update.message.chat.id,
                     message_id=update.message.message_id,
                     disable_web_page_preview=True
