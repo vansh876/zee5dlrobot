@@ -17,7 +17,7 @@ else:
     from config import Config
 
 # the Strings used for this "thing"
-from translation import Translation
+from script import script
 
 from pyrogram import Client, filters
 
