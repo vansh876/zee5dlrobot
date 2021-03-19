@@ -42,7 +42,7 @@ from plugins.helpers import(
     DownLoadFile
 )
 
-@Client.on_message(pyrogram.filters.regex(pattern=".*http.*"))
+@Client.on_message(filters.regex(pattern=".*http.*"))
 async def echo(bot, update):
     if update.from_user.id in Config.BANNED_USERS:
         await update.reply_text("You are B A N N E D 🤣🤣🤣🤣")
