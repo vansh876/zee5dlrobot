@@ -28,7 +28,7 @@ from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.errors import UserNotParticipant, UserBannedInChannel 
 
-from helper_funcs.chat_base import TRChatBase
+from chat_base import TRChatBase
 from hachoir.metadata import extractMetadata
 from hachoir.parser import createParser
 from datetime import datetime
