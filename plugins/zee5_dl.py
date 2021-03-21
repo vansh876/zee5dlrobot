@@ -71,7 +71,6 @@ async def zee5_capture(bot, update):
             await update.reply_text("Something Wrong. Contact my Support Group")
             return
           logger.info(update.from_user.id)
-    
     if "zee5" in update.text:
         try:
             w = update.text 
