@@ -65,7 +65,9 @@ async def echo(bot, update):
             )
             
         return
-
+         except Exception:
+            await update.reply_text("Something Wrong. Contact my Support Group")
+            return
     logger.info(update.from_user.id)
     
     if "zee5" in update.text:
