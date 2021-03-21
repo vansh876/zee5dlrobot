@@ -70,8 +70,10 @@ async def zee5_capture(bot, update):
         except Exception:
             await update.reply_text("Something Wrong. Contact my Support Group")
             return
+          
           logger.info(update.from_user.id)
-    if "zee5" in update.text:
+         
+          if "zee5" in update.text:
         try:
             w = update.text 
             req1 = requests.get("https://useraction.zee5.com/tokennd").json()
