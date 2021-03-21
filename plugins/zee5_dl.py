@@ -34,7 +34,7 @@ from datetime import datetime
 from PIL import Image
 
 
-from helper_funcs.chat_base import TRChatBase
+from chat_base import TRChatBase
 from plugins.helpers import(
     progress_for_pyrogram,
     humanbytes,
