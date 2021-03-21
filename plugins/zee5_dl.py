@@ -42,7 +42,7 @@ from plugins.helpers import(
 
 
 
-"""@Client.on_message(filters.private & filters.regex(pattern=".*http.*"))
+@Client.on_message(filters.private & filters.regex(pattern=".*http.*"))
 async def zee5_capture(bot, update):
 
     if update.from_user.id in Config.BANNED_USERS:
@@ -51,9 +51,9 @@ async def zee5_capture(bot, update):
             message_ids=update.message_id,
             revoke=True
         )
-        return"""
+        return
 
-@Client.on_message(filters.regex(pattern=".*http.*"))
+"""@Client.on_message(filters.regex(pattern=".*http.*"))
 async def zee5_capture(bot, update):
   
     if update.from_user.id in Config.BANNED_USERS:
@@ -75,7 +75,7 @@ async def zee5_capture(bot, update):
                     [ InlineKeyboardButton(text="Join My Updates Channel", url=f"https://t.me/{update_channel}")]
               ])
             )
-            return
+            return"""
           
     logger.info(update.from_user.id)
     
