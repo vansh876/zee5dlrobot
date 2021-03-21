@@ -42,7 +42,7 @@ from plugins.helpers import(
     DownLoadFile
 )
 
-@Client.on_message(filters.regex(pattern=".*http.*"))
+"""@Client.on_message(filters.regex(pattern=".*http.*"))
 async def echo(bot, update):
     if update.from_user.id in Config.BANNED_USERS:
         await update.reply_text("You are B A N N E D 🤣🤣🤣🤣")
@@ -66,7 +66,7 @@ async def echo(bot, update):
             
         return
          except Exception:
-            await update.reply_text("Something Wrong. Contact my Support Group")
+            await update.reply_text("Something Wrong. Contact my Support Group")"""
             return
     logger.info(update.from_user.id)
     
