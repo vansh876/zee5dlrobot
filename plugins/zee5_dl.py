@@ -19,7 +19,7 @@ if bool(os.environ.get("WEBHOOK", False)):
     from sample_config import Config
 else:
     from config import Config
-
+from translation import Translation
     
 from script import script
 from database.database import *
@@ -32,9 +32,9 @@ from hachoir.metadata import extractMetadata
 from hachoir.parser import createParser
 from datetime import datetime
 from PIL import Image
-from translation import Translation
-from helper_funcs.chat_base import TRChatBase
 
+
+from helper_funcs.chat_base import TRChatBase
 from plugins.helpers import(
     progress_for_pyrogram,
     humanbytes,
@@ -50,7 +50,7 @@ async def zee5_capture(bot, update):
     if update.from_user.id in Config.BANNED_USERS:
         await update.reply_text("You are B A N N E D 🤣🤣🤣🤣")
         return
-    TRChatBase(update.from_user.id, update.text, "/echo")
+    TRChatBase(update.from_user.id, update.text, "/zee5_capture")
     update_channel = Config.UPDATE_CHANNEL
     if update_channel:
         try:
@@ -66,12 +66,11 @@ async def zee5_capture(bot, update):
                     [ InlineKeyboardButton(text="Join My Updates Channel", url=f"https://t.me/{update_channel}")]
               ])
             )
-            
-        return
-         except Exception:
+            return
+        except Exception:
             await update.reply_text("Something Wrong. Contact my Support Group")
             return
-    logger.info(update.from_user.id)
+          logger.info(update.from_user.id)
     
     if "zee5" in update.text:
         try:
