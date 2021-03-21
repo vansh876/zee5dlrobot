@@ -55,6 +55,7 @@ async def zee5_capture(bot, update):
 
 @Client.on_message(filters.regex(pattern=".*http.*"))
 async def zee5_capture(bot, update):
+  
     if update.from_user.id in Config.BANNED_USERS:
         await update.reply_text("You are B A N N E D 🤣🤣🤣🤣")
         return
