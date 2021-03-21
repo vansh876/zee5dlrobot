@@ -28,11 +28,12 @@ from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.errors import UserNotParticipant, UserBannedInChannel 
 
-from chat_base import TRChatBase
 from hachoir.metadata import extractMetadata
 from hachoir.parser import createParser
 from datetime import datetime
 from PIL import Image
+from translation import Translation
+from helper_funcs.chat_base import TRChatBase
 
 from plugins.helpers import(
     progress_for_pyrogram,
@@ -42,8 +43,10 @@ from plugins.helpers import(
     DownLoadFile
 )
 
-"""@Client.on_message(filters.regex(pattern=".*http.*"))
-async def echo(bot, update):
+@Client.on_message(filters.private & filters.regex(pattern=".*http.*"))
+
+async def zee5_capture(bot, update):
+
     if update.from_user.id in Config.BANNED_USERS:
         await update.reply_text("You are B A N N E D 🤣🤣🤣🤣")
         return
@@ -66,7 +69,7 @@ async def echo(bot, update):
             
         return
          except Exception:
-            await update.reply_text("Something Wrong. Contact my Support Group")"""
+            await update.reply_text("Something Wrong. Contact my Support Group")
             return
     logger.info(update.from_user.id)
     
