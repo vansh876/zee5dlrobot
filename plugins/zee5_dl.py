@@ -70,10 +70,10 @@ async def zee5_capture(bot, update):
         except Exception:
             await update.reply_text("Something Wrong. Contact my Support Group")
             return
-          
-          logger.info(update.from_user.id)
-         
-          if "zee5" in update.text:
+
+    logger.info(update.from_user.id)
+    
+    if "zee5" in update.text:
         try:
             w = update.text 
             req1 = requests.get("https://useraction.zee5.com/tokennd").json()
@@ -107,7 +107,7 @@ async def zee5_capture(bot, update):
             return
             
     else:
-        await update.reply_text("I can download from Zee5 links only! Contact @shreevish for other links 😇", quote=True)
+        await update.reply_text("I can download from Zee5 links only! Use @UploadHEXbot for other links 😇", quote=True)
         return
     
     try:
@@ -443,7 +443,7 @@ async def zee5_execute(bot, update):
 
                 await bot.edit_message_text(
                     text=script.AFTER_SUCCESSFUL_UPLOAD_MSG_WITH_TS,
-                    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="🙌🏻 Creator 🙌🏻", url="https//:t.me/shreevish")]]),
+                    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="🙌🏻 SHARE ME 🙌🏻", url="tg://msg?text=%2A%2AHai%20%E2%9D%A4%EF%B8%8F%2C%2A%2A%20%0A__Today%20i%20just%20found%20out%20an%20intresting%20and%20Powerful__%20%2A%2AZee5%20Downloader%20Bot%2A%2A%20__for%20Free%F0%9F%A5%B0.__%20%20%0A%2A%2ABot%20Link%20%3A%20%40Zee5HEXBot%2A%2A%20%F0%9F%94%A5")]]),
                     chat_id=update.message.chat.id,
                     message_id=update.message.message_id,
                     disable_web_page_preview=True
