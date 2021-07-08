@@ -15,7 +15,7 @@ from script import script
 headers = {
     "User-Agent":"Mozilla/5.0 (Linux; Android 10; SM-J400F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Mobile Safari/537.36",
     "Referer":"https://www.zee5.com",
-    "Accept":"*/*",
+    "Accept":"application/json",
     "Accept-Encoding":"gzip, deflate, br",
     "Connection":"keep-alive",
     "Accept-Language":"en-US,en;q=0.9",
