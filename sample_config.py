@@ -1,8 +1,6 @@
 import os
 
 class Config(object):
-     # get a token from https://chatbase.com
-    CHAT_BASE_TOKEN = os.environ.get("CHAT_BASE_TOKEN", "")
 
     # get a token from @BotFather
     TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "")
@@ -20,9 +18,6 @@ class Config(object):
 
     # the download location, where the HTTP Server runs
     DOWNLOAD_LOCATION = "./DOWNLOADS"
-    
-    # Update channel for Force Subscribe
-    UPDATE_CHANNEL = os.environ.get("UPDATE_CHANNEL", "")
 
     # Telegram maximum file upload size
     TG_MAX_FILE_SIZE = 2097152000
@@ -35,4 +30,3 @@ class Config(object):
     
     # Sql Database url
     DB_URI = os.environ.get("DATABASE_URL", "")
-    
