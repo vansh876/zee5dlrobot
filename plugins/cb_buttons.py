@@ -11,4 +11,3 @@ async def formatbuttons(bot, update):
         
     elif "closeformat" in update.data:     
         await update.message.delete()
-    
