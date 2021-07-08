@@ -64,23 +64,23 @@ async def zee5_capture(bot, update):
             headers["X-Access-Token"] = req2
             req3 = requests.get("https://useraction.zee5.com/token").json()    
             if "movies" in w:
-                    r1 = requests.get(li["token"] + "-".join(rgx),
+                    r1 = requests.get(zee5vodnd.akamaized.net + "-".join(rgx),
                                                 headers=headers, 
                                                 params={"translation":"en", "country":"IN"}).json()
                     g1 = (r1["hls"][0].replace("drm", "hls") + req1["video_token"])
                     file_name = r1["title"]
-                    url = "https://" + li["url"] + g1
+                    url = "https://zee5vodnd.akamaized.net" + g1
             elif "tvshows" or "originals" in w:
-                    r2 = requests.get(li["token"] + "-".join(rgx), 
+                    r2 = requests.get(zee5vodnd.akamaized.net + "-".join(rgx), 
                                                 headers=headers, 
                                                 params={"translation":"en", "country":"IN"}).json()
                     g2 = (r2["hls"][0].replace("drm", "hls"))
                     if "netst" in g2:
                         file_name = r2["title"]
-                        url = "https://" + li["url"] + g2 + req3["video_token"]               
+                        url = "https://zee5vodnd.akamaized.net" + g2 + req3["video_token"]               
                     else:
                         file_name = r2["title"]
-                        url = "https://" + li["url"] + g2 + req1["video_token"]
+                        url = "https://zee5vodnd.akamaized.net" + g2 + req1["video_token"]
                     
             logger.info(url)
         except:
