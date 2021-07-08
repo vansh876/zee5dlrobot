@@ -5,7 +5,7 @@ numpy
 Pillow
 ffmpeg-python
 ffmpeg
-sqlalchemy
+sqlalchemy==1.4.20
 pyrogram
 Flask
 requests
